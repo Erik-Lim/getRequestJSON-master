@@ -12,19 +12,19 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button click;
-    public static TextView data;
+    Button btnButton;
+    public static TextView tvData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        click = (Button) findViewById(R.id.btnButton);
-        data = (TextView) findViewById(R.id.fetchdata);
+        btnButton = (Button) findViewById(R.id.btnButton);
+        tvData = (TextView) findViewById(R.id.tvData);
 
 
-        click.setOnClickListener(new View.OnClickListener() {
+        btnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 com.example.getjson.getJSON process = new com.example.getjson.getJSON();

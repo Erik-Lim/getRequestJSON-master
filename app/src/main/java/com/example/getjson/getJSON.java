@@ -43,6 +43,6 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.data.setText("Printing JSONArray: " + jsonArray.toString());
+        MainActivity.tvData.setText("Printing JSONArray: " + jsonArray.toString());
     }
 }

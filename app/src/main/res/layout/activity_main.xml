@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:textSize="24sp"
-            android:id="@+id/fetchdata"
+            android:id="@+id/tvData"
             android:hint="Fetched Text here!" />
 
     </ScrollView>

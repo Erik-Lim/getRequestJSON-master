@@ -46,6 +46,6 @@ public class getData extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.data.setText(this.data);
+        MainActivity.tvData.setText(this.data);
     }
 }
