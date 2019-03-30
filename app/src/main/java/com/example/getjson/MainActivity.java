@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        click = (Button) findViewById(R.id.button);
+        click = (Button) findViewById(R.id.btnButton);
         data = (TextView) findViewById(R.id.fetchdata);
 
 

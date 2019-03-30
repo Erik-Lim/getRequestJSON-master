@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import com.example.getjson.JsonIo;
 import com.example.getjson.MainActivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,7 +13,9 @@ import java.security.cert.LDAPCertStoreParameters;
 
 public class getJSON extends AsyncTask<Void, Void, Void> {
 
-    String jsonData = "";
+    String jsonString = "";
+    JSONArray jsonArray;
+
     @Override
     protected Void doInBackground(Void... voids) {
 
@@ -20,23 +23,19 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
 
         try
         {
-            obj.put("username", "y");
-            obj.put("password", "y");
+            obj.put("userId", "5c78ce86a484a23550339d6a");
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
 
-        JSONObject ret = JsonIo.doJsonIo("http://largeproject-testing-app.herokuapp.com/expenses/loginUser", obj.toString());
+        jsonArray = JsonIo.doJsonIo("http://trackdatcash.herokuapp.com/expenses/all", obj.toString());
 
-        try
-        {
-            jsonData = ret.toString();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
+//        while( counter != jsonObject.length()) {
+//
+//            String description = jo.put("firstName", "John");
+//            String bakkle = jo.put("lastName", "Doe");
+//        }
         return null;
     }
 
@@ -44,6 +43,6 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.data.setText(jsonData + " finished");
+        MainActivity.data.setText("Printing JSONArray: " + jsonArray.toString());
     }
 }

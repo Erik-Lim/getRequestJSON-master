@@ -1,5 +1,6 @@
 package com.example.getjson;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -10,6 +11,7 @@ import java.net.URL;
 
 public class JsonIo
 {
+
     public static class MyThread extends Thread implements Runnable
     {
         String url, payload;
@@ -25,16 +27,14 @@ public class JsonIo
             String ret = sendPostRequest(url, payload);
             try
             {
-                jobj = new JSONObject(ret);
+                jobj = new JSONArray(ret);
             }
-            catch(Exception ex){
-
-            }
+            catch(Exception ex){}
         }
     }
 
-    public static JSONObject jobj = null;
-    public static JSONObject doJsonIo( String url, String payload )
+    public static JSONArray jobj = null;
+    public static JSONArray doJsonIo(String url, String payload )
     {
         jobj = null;
 
@@ -71,7 +71,6 @@ public class JsonIo
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             writer.write(payload);
             writer.close();
-
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
             String line;
