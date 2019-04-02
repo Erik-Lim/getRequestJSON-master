@@ -29,7 +29,7 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
             e.printStackTrace();
         }
 
-        jsonArray = JsonIo.doJsonIo("http://trackdatcash.herokuapp.com/expenses/all", obj.toString());
+        jsonArray = JsonIo.doJsonIo("http://localhost:4000/expenses/categoryMobile/Food", obj.toString());
 
 //        while( counter != jsonObject.length()) {
 //
