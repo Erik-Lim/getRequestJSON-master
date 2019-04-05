@@ -27,14 +27,16 @@ public class JsonIo
             String ret = sendPostRequest(url, payload);
             try
             {
-                jobj = new JSONArray(ret);
+                jobj = ret;
             }
             catch(Exception ex){}
         }
     }
 
-    public static JSONArray jobj = null;
-    public static JSONArray doJsonIo(String url, String payload )
+
+    public static String jobj = null;
+
+    public static String doJsonIo(String url, String payload )
     {
         jobj = null;
 
