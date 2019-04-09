@@ -14,8 +14,8 @@ import java.security.cert.LDAPCertStoreParameters;
 public class getJSON extends AsyncTask<Void, Void, Void> {
 
     String jsonString = "";
-    String tokenString;
-    String[] tokens;
+    JSONObject jsonArray;
+    String tokens;
 
     @Override
     protected Void doInBackground(Void... voids) {
@@ -24,18 +24,16 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
 
         try
         {
-            obj.put("email", "abcdefg12@abcdefg12.com");
-            obj.put("password", "abcdefg12");
+            obj.put("email", "lexiitest@test.com");
+            obj.put("password", "lexiitest");
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
 
-        tokenString = JsonIo.doJsonIo("https://trackdatcash.herokuapp.com/expenses/login", obj.toString());
+        jsonArray = JsonIo.doJsonIo("https://trackdatcash.herokuapp.com/expenses/login", obj.toString());
 
-        tokens = tokenString.split(" ", 2);
-
-        tokens[1]
+        tokens = jsonArray.toString();
 
         return null;
     }
@@ -44,6 +42,6 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.tvData.setText("Printing JSONArray: " + jsonArray.toString());
+        MainActivity.tvData.setText("Printing JSONArray: " + tokens);
     }
 }
