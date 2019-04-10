@@ -8,11 +8,11 @@ import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnButton;
+
     public static TextView tvData;
 
     @Override
@@ -23,13 +23,28 @@ public class MainActivity extends AppCompatActivity {
         btnButton = (Button) findViewById(R.id.btnButton);
         tvData = (TextView) findViewById(R.id.tvData);
 
+        JSONObject obj = new JSONObject();
+
+        try
+        {
+            obj.put("email", "lexiitest@test.com");
+            obj.put("password", "lexiitest");
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        final JSONObject jsonArray = getJsonObject.doJsonIo("https://trackdatcash.herokuapp.com/expenses/login", obj.toString());
+
 
         btnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                com.example.getjson.getJSON process = new com.example.getjson.getJSON();
+//                com.example.getjson.getJSON process = new com.example.getjson.getJSON();
+//
+//                process.execute();
+                tvData.setText(jsonArray.toString());
 
-                process.execute();
             }
         });
     }

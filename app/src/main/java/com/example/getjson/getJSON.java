@@ -2,14 +2,8 @@ package com.example.getjson;
 
 import android.os.AsyncTask;
 
-import com.example.getjson.JsonIo;
-import com.example.getjson.MainActivity;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.cert.LDAPCertStoreParameters;
 
 public class getJSON extends AsyncTask<Void, Void, Void> {
 
@@ -31,7 +25,7 @@ public class getJSON extends AsyncTask<Void, Void, Void> {
             e.printStackTrace();
         }
 
-        jsonArray = JsonIo.doJsonIo("https://trackdatcash.herokuapp.com/expenses/login", obj.toString());
+        jsonArray = getJsonObject.doJsonIo("https://trackdatcash.herokuapp.com/expenses/login", obj.toString());
 
         tokens = jsonArray.toString();
 

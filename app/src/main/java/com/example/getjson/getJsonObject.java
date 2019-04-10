@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class JsonIo
+public class getJsonObject
 {
 
     public static class MyThread extends Thread implements Runnable
